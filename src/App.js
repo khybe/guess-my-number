@@ -5,66 +5,87 @@ import MainPage from "./components/MainPage";
 import classes from "./App.module.css";
 
 function App() {
-  const [userPlay, setUserPlay] = useState(true);
-  const [number, setNumber] = useState(0);
-  let [score, setScore] = useState(20);
-  let [highScore, setHighScore] = useState(0);
-  let [message, setMessage] = useState("Start guessing...");
-  const [win, setWin] = useState(false);
+  const initPlay = {
+    userPlay: true,
+    number: 0,
+    score: 20,
+    highScore: 0,
+    message: "Start guessing...",
+    win: false,
+  };
+  const [play, setPlay] = useState(initPlay);
+
   let userGuess;
 
   const againHandler = () => {
     console.log("Again is clicked!");
 
-    setScore(20);
-    setWin(false);
-    setUserPlay(true);
-    setMessage("Start guessing...");
-
     const randomNumber = Math.floor(Math.random() * 20 + 1);
     console.log("Random number is: " + randomNumber);
-    setNumber(randomNumber);
+
+    setPlay({
+      ...play,
+      score: 20,
+      win: false,
+      userPlay: true,
+      message: "Start guessing...",
+      number: randomNumber,
+    });
   };
 
   const handleSubmit = (guess) => {
     userGuess = Number(guess);
     console.log("userGuess is: " + userGuess);
 
-    if (userGuess === number) {
-      setWin(true);
-      setUserPlay(false);
-      setMessage("🎉 Correct Number!");
-      if (score > highScore) {
-        setHighScore(score);
-      }
-    } else if (userGuess > number) {
-      console.log("User guess is higher than number.");
+    if (userGuess === play.number) {
+      setPlay({
+        ...play,
+        win: (play.win = true),
+        userPlay: false,
+        message: (play.message = "🎉 Correct Number!"),
+      });
 
-      setMessage("📈 Too High!");
-      setScore((prevState) => prevState - 1);
-    } else if (userGuess < number) {
+      if (play.score > play.highScore) {
+        setPlay({
+          ...play,
+          highScore: play.score,
+        });
+      }
+    } else if (userGuess > play.number) {
+      console.log("User guess is higher than number.");
+      setPlay({
+        ...play,
+        message: (play.message = "📈 Too High!"),
+        score: play.score - 1,
+      });
+    } else if (userGuess < play.number) {
       console.log("User guess is lower than number.");
 
-      setScore((prevState) => prevState - 1);
-
-      setMessage("📉 Too low!");
+      setPlay({
+        ...play,
+        message: "📉 Too low!",
+        score: play.score - 1,
+      });
     } else if (userGuess > 20 || userGuess < 1) {
-      setMessage("Enter valid number (20 to 1)");
+      setPlay({
+        ...play,
+        message: "Enter valid number (20 to 1)",
+      });
     }
 
-    console.log("Number is: " + number);
-    console.log("Score is: " + score);
+    console.log("Number is: " + play.number);
+    console.log("Score is: " + play.score);
     console.log("Check is Clicked!");
   };
 
   return (
-    <div className={win ? classes.won : ""}>
-      <Header onAgain={againHandler} number={number} won={win} />
+    <div className={play.win ? classes.won : ""}>
+      <Header onAgain={againHandler} number={play.number} won={play.win} />
       <MainPage
         onSubmit={handleSubmit}
-        message={message}
-        score={score}
-        highScore={highScore}
+        message={play.message}
+        score={play.score}
+        highScore={play.highScore}
       />
     </div>
   );
