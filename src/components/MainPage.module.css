@@ -1,5 +1,5 @@
 .main {
-  height: 65vh;
+  height: 25rem;
   color: #eee;
   display: flex;
   align-items: center;
@@ -56,14 +56,16 @@
   margin-top: 0;
 }
 
-@media screen and (max-width: 385px) {
+@media screen and (max-width: 540px) {
   .main {
     display: flex;
     flex-direction: column;
   }
 
   .left {
+    /* border: 2px solid red; */
     width: 22rem;
+    margin-top: 4rem;
   }
 
   .right {

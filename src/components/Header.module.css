@@ -1,6 +1,7 @@
 .header {
   position: relative;
   height: 35vh;
+  min-height: 16rem;
   border-bottom: 7px solid #eee;
 }
 
@@ -49,9 +50,9 @@ h1 {
   transform: translate(-50%, 50%);
 }
 
-@media screen and (max-width: 385px) {
+@media screen and (max-width: 440px) {
   .header {
-    height: 40vh;
+    height: 10rem;
   }
 
   h1 {
@@ -61,7 +62,7 @@ h1 {
   }
 
   .between {
-    top: 5rem;
+    top: 5.5rem;
     left: 0;
     right: 0;
   }

@@ -92,3 +92,9 @@ function App() {
 }
 
 export default App;
+
+// 1# Conditionally changing classes (i.e, the won class, whitin App.js).
+
+// 2# Lefting the state up, from child to a parent component (i.e, from MainPage.js to App.js).
+
+// 3# State management of a complex object (i.e, play state whitin App.js).
