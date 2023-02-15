@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 
@@ -14,6 +14,15 @@ function App() {
     win: false,
   };
   const [play, setPlay] = useState(initPlay);
+
+  useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * 20 + 1);
+
+    setPlay((obj) => ({
+      ...obj,
+      number: randomNumber,
+    }));
+  }, []);
 
   let userGuess;
 
