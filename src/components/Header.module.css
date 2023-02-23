@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  height: 35vh;
+  height: 40vh;
   min-height: 16rem;
   border-bottom: 7px solid #eee;
 }
@@ -31,7 +31,7 @@ h1 {
   font-size: 3rem;
   color: white;
   position: absolute;
-  top: 4rem;
+  top: 30%;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -51,10 +51,6 @@ h1 {
 }
 
 @media screen and (max-width: 440px) {
-  .header {
-    height: 10rem;
-  }
-
   h1 {
     font-size: 2rem;
     position: absolute;

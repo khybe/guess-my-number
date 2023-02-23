@@ -2,8 +2,7 @@ import { useState } from "react";
 
 import classes from "./MainPage.module.css";
 
-const MainPage = ({ onSubmit, message, score, highScore }) => {
-  const [guess, setGuess] = useState("");
+const MainPage = ({ onSubmit, message, score, highScore, guess, setGuess }) => {
   return (
     <main className={classes.main}>
       <section className={classes.left}>

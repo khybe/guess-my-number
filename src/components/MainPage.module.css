@@ -1,5 +1,6 @@
 .main {
-  height: 25rem;
+  height: 60vh;
+  min-height: 20rem;
   color: #eee;
   display: flex;
   align-items: center;
@@ -63,7 +64,6 @@
   }
 
   .left {
-    /* border: 2px solid red; */
     width: 22rem;
     margin-top: 4rem;
   }
@@ -86,8 +86,7 @@
   }
 
   .message {
-    margin-bottom: 2rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0;
   }
 
   .score {

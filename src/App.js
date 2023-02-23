@@ -4,7 +4,7 @@ import MainPage from "./components/MainPage";
 
 import classes from "./App.module.css";
 
-function App() {
+function App(props) {
   const initPlay = {
     userPlay: true,
     number: 0,
@@ -14,6 +14,7 @@ function App() {
     win: false,
   };
   const [play, setPlay] = useState(initPlay);
+  const [guess, setGuess] = useState("");
 
   useEffect(() => {
     const randomNumber = Math.floor(Math.random() * 20 + 1);
@@ -40,6 +41,8 @@ function App() {
       message: "Start guessing...",
       number: randomNumber,
     });
+
+    setGuess("");
   };
 
   const handleSubmit = (guess) => {
@@ -60,6 +63,7 @@ function App() {
           highScore: play.score,
         });
       }
+      userGuess = 0;
     } else if (userGuess > play.number) {
       console.log("User guess is higher than number.");
       setPlay({
@@ -95,6 +99,8 @@ function App() {
         message={play.message}
         score={play.score}
         highScore={play.highScore}
+        setGuess={setGuess}
+        guess={guess}
       />
     </div>
   );
