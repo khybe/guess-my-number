@@ -52,6 +52,10 @@ To run this project on your local machine:
 4. Start the development server: `npm start`.
 5. Open your web browser and go to `http://localhost:3000` to play the game.
 
+## Play the Game
+
+You can play the Guess My Number game online by visiting the following link: [Play Guess My Number](https://guess-my-number-eight-plum.vercel.app/)
+
 ## License
 
 This project is open-source and is available under the MIT License. See the [LICENSE](LICENSE) file for details.
