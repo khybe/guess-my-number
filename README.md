@@ -1,4 +1,4 @@
-# Guess My Number Project
+# Guess My Number Practice Project
 
 Welcome to the "guess-my-number" repository! This project was created as a practice endeavor to enhance my knowledge of web development, particularly focusing on JavaScript. The goal of this project was to build a simple game where users can guess a randomly generated number and receive feedback on their guesses.
 
